@@ -157,7 +157,7 @@ Task("Publish-Test-Results")
         TFBuild.Commands.PublishTestResults(new TFBuildPublishTestResultsData
         {
             TestRunner = TFTestRunnerType.VSTest,
-            TestResultsFiles = GetFiles($"{Paths.TestResultsDirectory}/.trx").ToList()
+            TestResultsFiles = GetFiles($"{Paths.TestResultsDirectory}/*.trx").ToList()
         })
     );
 
