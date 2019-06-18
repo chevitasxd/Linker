@@ -8,10 +8,14 @@ public static string ReadVersionFromProjectFile(ICakeContext context)
 {
     var versionNode = "/Project/PropertyGroup/Version/text()";
 
+    var version = context.XmlPeek(Paths.WebProjectFile, versionNode, new XmlPeekSettings {
+        SuppressWarning = true
+    });
     // TODO: return the content of the version node in the project file
-    return null;
+    return version;
 }
 
+/*
 public static bool LatestCommitHasVersionTag(this ICakeContext context)
 {
     var latestTag = context.GitDescribe(Paths.RepoDirectory);
@@ -20,3 +24,4 @@ public static bool LatestCommitHasVersionTag(this ICakeContext context)
 
     return isVersionTag && noCommitsAfterLatestTag;
 }
+*/
